@@ -25,7 +25,7 @@ for numbers.
 # Make your own yadda-yadda
 
 `yadd` has several parameters, most of which are dependent on the usage model. You may want to consider writing your own
-function that calls yadda with the parameters most appropriate for your usage.
+function that calls `yadd` with the parameters most appropriate for your usage.
 
 Example:
 
@@ -34,6 +34,7 @@ Example:
 from yadd import yadd
 
 def my_yadd(*args, **kwargs) -> bool:
+    # loosen up the numeric tolerances
     return yadd(*args, rel_tol=1E-6, abs_tol=1E-9, **kwargs)
 
 ```

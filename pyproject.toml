@@ -1,7 +1,8 @@
 [project]
 name = "yadd"
-version = "0.0.1"
+version = "0.0.3"
 description = "Yet Another dict Differ"
+long_description = {file = "README.md"}
 readme = "README.md"
 
 # the 0th author is the "application author", i.e. the entity (possibly organization or business) publishing the package (as opposed to the individual authors, i.e. people)
@@ -16,6 +17,12 @@ dependencies = [
     "ismain",
 ]
 requires-python = ">=3.10"
+
+[project.urls]
+# for PyPI
+"Homepage" = "https://github.com/jamesabel/yadd"
+"Source" = "https://github.com/jamesabel/yadd"
+"Documentation" = "https://github.com/jamesabel/yadd"
 
 [build-system]
 requires = ["hatchling"]

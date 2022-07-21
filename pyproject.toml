@@ -1,13 +1,13 @@
 [project]
 name = "yadd"
-version = "0.0.3"
+version = "0.0.5"
 description = "Yet Another dict Differ"
 long_description = {file = "README.md"}
 readme = "README.md"
 
 # the 0th author is the "application author", i.e. the entity (possibly organization or business) publishing the package (as opposed to the individual authors, i.e. people)
 authors = [
-    { name = "jamesabel", email = "j@abel.co" },
+    { name = "abel", email = "j@abel.co" },
     { name = "James Abel", email = "j@abel.co" }
 ]
 
@@ -23,6 +23,9 @@ requires-python = ">=3.10"
 "Homepage" = "https://github.com/jamesabel/yadd"
 "Source" = "https://github.com/jamesabel/yadd"
 "Documentation" = "https://github.com/jamesabel/yadd"
+
+[options.entry_points]
+project.scripts = "yadd"
 
 [build-system]
 requires = ["hatchling"]

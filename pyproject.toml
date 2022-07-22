@@ -1,6 +1,6 @@
 [project]
 name = "yadd"
-version = "0.0.9"
+version = "0.1.0"
 description = "Yet Another dict Differ"
 long_description = {file = "README.md"}
 readme = "README.md"

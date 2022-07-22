@@ -1,6 +1,6 @@
 import math
 import cmath
-from typing import Dict, Tuple, Callable, Iterable, List, DefaultDict
+from typing import Dict, Tuple, Callable, Iterable, List, DefaultDict, OrderedDict
 from decimal import Decimal
 from collections import defaultdict, Counter
 from logging import getLogger
@@ -23,6 +23,8 @@ def are_comparable(a, b) -> bool:
     """
     comparable = False
     if type(a) == type(b):
+        comparable = True
+    elif isinstance(a, (dict, DefaultDict, OrderedDict)) and isinstance(b, (dict, DefaultDict, OrderedDict)):
         comparable = True
     elif isinstance(a, (float, int, Decimal, complex)) and isinstance(b, (float, int, Decimal, complex)):
         # various "numbers" are comparable between each other

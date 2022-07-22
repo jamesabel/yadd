@@ -45,6 +45,7 @@ class Yadd:
         miscompare_callback: Callable = log.error,
         expect_dict_key_ordered: bool = False,
         raise_exception_on_miscompare: bool = True,
+        numeric_miscompares: DefaultDict[float, List] = None,
     ):
 
         """
@@ -58,6 +59,7 @@ class Yadd:
         :param miscompare_callback: function to call on a miscompare (can be a logger such as log.error or print to output to stdout)
         :param expect_dict_key_ordered: set to True to check if input dicts keys have the same order
         :param raise_exception_on_miscompare: True to raise exception on a miscompare
+        :param numeric_miscompares: optional dict that holds all the numeric miscompares (key is the difference value). Useful to get an overall rollup across multiple Yadd instances.
         """
 
         # function takes description as a tuple
@@ -73,7 +75,12 @@ class Yadd:
         self._raise_exception_on_miscompare = raise_exception_on_miscompare
 
         self._compare_results = []  # type: List[bool]
-        self._numeric_miscompares = defaultdict(list)  # type: DefaultDict[float, List]
+
+        if numeric_miscompares is None:
+            self._numeric_miscompares = defaultdict(list)  # type: DefaultDict[float, List]
+        else:
+            self._numeric_miscompares = numeric_miscompares
+
         self._yadd(expected, under_test, _description_tuple)
 
     def match(self) -> bool:
@@ -90,7 +97,7 @@ class Yadd:
         """
         return self._compare_results
 
-    def numeric_miscompares(self) -> Dict[float, List]:
+    def get_numeric_miscompares(self) -> Dict[float, List]:
         """
         Get a sorted dict of lists with the key being the difference. Useful for debugging/displaying the largest differences first.
         :return: sorted dict of miscompares

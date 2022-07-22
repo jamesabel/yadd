@@ -18,5 +18,5 @@ def test_pass_rate():
     assert math.isclose(pass_rate, 1.0 / 3.0)
 
     print("miscompares:")
-    for k, v in compare_result.numeric_miscompares().items():
+    for k, v in compare_result.get_numeric_miscompares().items():
         print(f"{k} : {v}")

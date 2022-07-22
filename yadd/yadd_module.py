@@ -215,6 +215,7 @@ def yadd(
     :param miscompare_callback: function to call on a miscompare (can be a logger such as log.error or print to output to stdout)
     :param expect_dict_key_ordered: set to True to check if input dicts keys have the same order
     :param raise_exception_on_miscompare: True to raise exception on a miscompare
+    :return True on a match (otherwise False)
     """
 
     _yadd = Yadd(expected, under_test, description, rel_tol, abs_tol, miscompare_callback, expect_dict_key_ordered, raise_exception_on_miscompare)

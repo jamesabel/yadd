@@ -8,5 +8,6 @@ python -m pip install --no-deps --upgrade pip
 python -m pip install -U setuptools
 python -m pip install -U -r requirements-dev.txt
 pre-commit install
+pre-commit autoupdate
 popd
 call deactivate

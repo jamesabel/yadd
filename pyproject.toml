@@ -1,6 +1,6 @@
 [project]
 name = "yadd"
-version = "0.0.5"
+version = "0.0.6"
 description = "Yet Another dict Differ"
 long_description = {file = "README.md"}
 readme = "README.md"
@@ -14,7 +14,7 @@ authors = [
 license = { text = "MIT License" }
 keywords = ["dict", "differ"]
 dependencies = [
-    "ismain",
+    "ismain", "tomli",
 ]
 requires-python = ">=3.10"
 

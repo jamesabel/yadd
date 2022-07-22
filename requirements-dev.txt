@@ -1,6 +1,7 @@
 #
 # program dependencies
 ismain
+tomli
 #
 # build tools
 build

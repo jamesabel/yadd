@@ -1,6 +1,7 @@
 from typing import Tuple
-import tomllib
 from functools import lru_cache
+
+import tomli as tomllib
 
 
 @lru_cache()

@@ -176,7 +176,7 @@ class Yadd:
                             difference = float(min(abs((expected - under_test) / expected), abs((expected - under_test) / under_test)))
                         except ZeroDivisionError:
                             difference = math.nan
-                        self._numeric_miscompares[difference].append(f"{'.'.join(description)} : expected={expected=} != under_test={under_test=}")
+                        self._numeric_miscompares[difference].append(f"{'.'.join(description)} : {expected=} != {under_test=}")
                 else:
                     # other things that are directly comparable, such as str and bool
                     try:

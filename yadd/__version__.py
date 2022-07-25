@@ -1,3 +1,3 @@
 application_name = "yadd"
 author = "abel"
-version = "0.2.1"
+version = "0.2.3"

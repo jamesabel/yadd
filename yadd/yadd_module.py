@@ -133,7 +133,7 @@ class Yadd:
                     not self._expect_dict_key_ordered and set(expected.keys()) != set(under_test.keys())
                 ):
                     # make sure both dicts keys are the same
-                    self._miscompare_callback(f"keys {list(expected.keys())} != {list(under_test.keys())}")
+                    self._miscompare_callback(f"{'.'.join(description)} : keys {list(expected.keys())} != {list(under_test.keys())}")
                     self._compare_results.append(False)
                     leaf_result = False
                 else:
@@ -183,10 +183,10 @@ class Yadd:
                         self._compare_results.append(expected == under_test)
                     except ValueError as e:
                         self._compare_results.append(False)
-                        self._miscompare_callback(f"{type(expected)=},{type(under_test)=} not supported ({e})")
+                        self._miscompare_callback(f"{'.'.join(description)} : {expected=},{under_test=} {type(expected)=},{type(under_test)=} not supported ({e})")
                 leaf_result = self._compare_results[-1]
         else:
-            self._miscompare_callback(f"{type(expected)=},{type(under_test)=} not supported")
+            self._miscompare_callback(f"{'.'.join(description)} : {expected=},{under_test=} {type(expected)=},{type(under_test)=} comparison not supported")
             if self._raise_exception_on_miscompare:
                 raise MiscompareException("not comparable", type(expected), type(under_test))
 

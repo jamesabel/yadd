@@ -5,9 +5,7 @@ description = "Yet Another dict Differ"
 long_description = {file = "README.md"}
 readme = "README.md"
 
-# the 0th author is the "application author", i.e. the entity (possibly organization or business) publishing the package (as opposed to the individual authors, i.e. people)
 authors = [
-    { name = "abel", email = "j@abel.co" },
     { name = "James Abel", email = "j@abel.co" }
 ]
 

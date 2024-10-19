@@ -41,15 +41,14 @@ class Yadd:
         self,
         expected: Dict | Iterable | float | int | str | Decimal | complex | bool,
         under_test: Dict | Iterable | float | int | str | Decimal | complex | bool,
-        description: str = None,
+        description: str | None = None,
         rel_tol: float = 1e-9,
         abs_tol: float = 0.0,
         miscompare_callback: Callable = log.error,
         expect_dict_key_ordered: bool = False,
         raise_exception_on_miscompare: bool = True,
-        numeric_miscompares: DefaultDict[float, List] = None,
+        numeric_miscompares: DefaultDict[float, List] | None = None,
     ):
-
         """
         Yet Another Dict Difference Alternative
 
@@ -126,14 +125,14 @@ class Yadd:
         leaf_result = None
 
         if are_comparable(expected, under_test):
-
             if isinstance(expected, (dict, defaultdict)) and isinstance(under_test, (dict, defaultdict)):
                 # dicts and defaultdicts
                 if (self._expect_dict_key_ordered and list(expected.keys()) != list(under_test.keys())) or (
                     not self._expect_dict_key_ordered and set(expected.keys()) != set(under_test.keys())
                 ):
                     # make sure both dicts keys are the same
-                    self._miscompare_callback(f"{'.'.join(description)} : keys {list(expected.keys())} != {list(under_test.keys())}")
+                    keys_diff = sorted(set(expected.keys()) ^ set(under_test.keys()))
+                    self._miscompare_callback(f"{'.'.join(description)} : {keys_diff=}")
                     self._compare_results.append(False)
                     leaf_result = False
                 else:
@@ -199,7 +198,7 @@ class Yadd:
 def yadd(
     expected: Dict | Iterable | float | int | str | Decimal | complex | bool,
     under_test: Dict | Iterable | float | int | str | Decimal | complex | bool,
-    description: str = None,
+    description: str | None = None,
     rel_tol: float = 1e-9,
     abs_tol: float = 0.0,
     miscompare_callback: Callable = print,

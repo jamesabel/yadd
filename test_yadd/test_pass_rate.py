@@ -4,7 +4,6 @@ from yadd import Yadd
 
 
 def test_pass_rate():
-
     x = {"a": 1, "b": 2, "c": 1.1}
     y = {"a": 1, "b": 3, "c": 0.9}
 
